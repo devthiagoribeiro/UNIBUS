@@ -21,7 +21,7 @@
 		4697B0E72CB838EA0034C875 /* preferencias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0E62CB838EA0034C875 /* preferencias.swift */; };
 		4697B0E92CB83AE50034C875 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0E82CB83AE50034C875 /* api.swift */; };
 		4697B0EB2CB83B160034C875 /* viewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0EA2CB83B160034C875 /* viewmodel.swift */; };
-		4697B0ED2CB84BA10034C875 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0EC2CB84BA10034C875 /* teste.swift */; };
+		4697B0F12CB858FE0034C875 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 4697B0F02CB858FE0034C875 /* BottomSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		4697B0E62CB838EA0034C875 /* preferencias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preferencias.swift; sourceTree = "<group>"; };
 		4697B0E82CB83AE50034C875 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		4697B0EA2CB83B160034C875 /* viewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmodel.swift; sourceTree = "<group>"; };
-		4697B0EC2CB84BA10034C875 /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4697B0F12CB858FE0034C875 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +94,7 @@
 				4697B0C42CB836750034C875 /* UNIBUSTests */,
 				4697B0CE2CB836750034C875 /* UNIBUSUITests */,
 				4697B0B22CB836740034C875 /* Products */,
+				4697B0EF2CB858FE0034C875 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,7 +119,6 @@
 				4697B0E82CB83AE50034C875 /* api.swift */,
 				4697B0EA2CB83B160034C875 /* viewmodel.swift */,
 				4697B0E62CB838EA0034C875 /* preferencias.swift */,
-				4697B0EC2CB84BA10034C875 /* teste.swift */,
 				4697B0DE2CB836EE0034C875 /* mapa.swift */,
 				4697B0B82CB836750034C875 /* Assets.xcassets */,
 				4697B0BA2CB836750034C875 /* Preview Content */,
@@ -151,6 +151,13 @@
 			path = UNIBUSUITests;
 			sourceTree = "<group>";
 		};
+		4697B0EF2CB858FE0034C875 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,6 +174,9 @@
 			dependencies = (
 			);
 			name = UNIBUS;
+			packageProductDependencies = (
+				4697B0F02CB858FE0034C875 /* BottomSheet */,
+			);
 			productName = UNIBUS;
 			productReference = 4697B0B12CB836740034C875 /* UNIBUS.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 4697B0A82CB836740034C875;
+			packageReferences = (
+				4697B0EE2CB858E30034C875 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+			);
 			productRefGroup = 4697B0B22CB836740034C875 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -288,7 +301,6 @@
 				4697B0DF2CB836EE0034C875 /* mapa.swift in Sources */,
 				4697B0E72CB838EA0034C875 /* preferencias.swift in Sources */,
 				4697B0E32CB8389E0034C875 /* Itinerario.swift in Sources */,
-				4697B0ED2CB84BA10034C875 /* teste.swift in Sources */,
 				4697B0E92CB83AE50034C875 /* api.swift in Sources */,
 				4697B0E12CB838690034C875 /* rotas.swift in Sources */,
 			);
@@ -614,6 +626,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4697B0EE2CB858E30034C875 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4697B0F02CB858FE0034C875 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4697B0EE2CB858E30034C875 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4697B0A92CB836740034C875 /* Project object */;
 }

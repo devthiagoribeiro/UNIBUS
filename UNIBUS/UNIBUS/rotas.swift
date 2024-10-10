@@ -28,7 +28,7 @@ struct rotas: View {
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
             VStack{
-                Picker("Select a paint color", selection: $selection) {
+                Picker("Select", selection: $selection) {
                     ForEach(busList, id: \.self) {
                         Text($0)
                     }
