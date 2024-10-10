@@ -21,6 +21,7 @@
 		4697B0E72CB838EA0034C875 /* preferencias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0E62CB838EA0034C875 /* preferencias.swift */; };
 		4697B0E92CB83AE50034C875 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0E82CB83AE50034C875 /* api.swift */; };
 		4697B0EB2CB83B160034C875 /* viewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0EA2CB83B160034C875 /* viewmodel.swift */; };
+		4697B0ED2CB84BA10034C875 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B0EC2CB84BA10034C875 /* teste.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		4697B0E62CB838EA0034C875 /* preferencias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preferencias.swift; sourceTree = "<group>"; };
 		4697B0E82CB83AE50034C875 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		4697B0EA2CB83B160034C875 /* viewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmodel.swift; sourceTree = "<group>"; };
+		4697B0EC2CB84BA10034C875 /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				4697B0E82CB83AE50034C875 /* api.swift */,
 				4697B0EA2CB83B160034C875 /* viewmodel.swift */,
 				4697B0E62CB838EA0034C875 /* preferencias.swift */,
+				4697B0EC2CB84BA10034C875 /* teste.swift */,
 				4697B0DE2CB836EE0034C875 /* mapa.swift */,
 				4697B0B82CB836750034C875 /* Assets.xcassets */,
 				4697B0BA2CB836750034C875 /* Preview Content */,
@@ -285,6 +288,7 @@
 				4697B0DF2CB836EE0034C875 /* mapa.swift in Sources */,
 				4697B0E72CB838EA0034C875 /* preferencias.swift in Sources */,
 				4697B0E32CB8389E0034C875 /* Itinerario.swift in Sources */,
+				4697B0ED2CB84BA10034C875 /* teste.swift in Sources */,
 				4697B0E92CB83AE50034C875 /* api.swift in Sources */,
 				4697B0E12CB838690034C875 /* rotas.swift in Sources */,
 			);

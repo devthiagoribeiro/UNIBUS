@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isPresenting = false
+    @State var tabSelection = 0
     var body: some View {
         ZStack{
             TabView{
@@ -33,6 +34,7 @@ struct ContentView: View {
                         Label("Preferencias", systemImage: "person.fill.questionmark")
                     }
             }
+            .animation(.spring(), value: tabSelection)
         }
     }
 }
