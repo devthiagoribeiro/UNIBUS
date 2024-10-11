@@ -6,13 +6,90 @@
 //
 
 import SwiftUI
-
+import BottomSheet
 struct preferencias: View {
+    @StateObject var viewModel = ViewModel()
+    @State var selection = ""
+    @State var selection1 = ""
+    @State var selection2 = ""
+    @State var selection3 = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.cor.ignoresSafeArea()
+            VStack(){
+                Text("")
+                Spacer()
+                HStack{
+                    Text("Preferências:")
+                        .font(.title).padding()
+                }
+                Text("Onibus 1").bold()
+                
+                Picker("Select a paint color", selection: $selection) {
+                    ForEach(viewModel.chars, id: \.self) { p in
+                        
+                        Text(p.nome!)
+                    }
+                }.padding(.horizontal,90).padding(.vertical,9)
+                .accentColor(.jo)
+                .background(Color.gray).cornerRadius(20.0).frame(width: 890)
+                .cornerRadius(12.0)
+                
+                Text("Onibus 2").bold()
+                
+                Picker("Select a paint color", selection: $selection1) {
+                    ForEach(viewModel.chars, id: \.self) { p in
+                        
+                        Text(p.nome!)
+                    }
+                }.padding(.horizontal,90).padding(.vertical,9)
+                .accentColor(.jo)
+                .background(Color.gray).cornerRadius(20.0).frame(width: 890)
+                .cornerRadius(12.0)
+                
+                Text("Onibus 3").bold()
+                
+                Picker("Select a paint color", selection: $selection2) {
+                    ForEach(viewModel.chars, id: \.self) { p in
+                        
+                        Text(p.nome!)
+                    }
+                }.padding(.horizontal,90).padding(.vertical,9)
+                .accentColor(.jo)
+                .background(Color.gray).cornerRadius(20.0).frame(width: 890)
+                .cornerRadius(12.0)
+                
+                Text("Onibus 4").bold()
+                    
+                Picker("Select a paint color", selection: $selection3) {
+                    ForEach(viewModel.chars, id: \.self) { p in
+                        
+                        Text(p.nome!)
+                    }
+                }.padding(.horizontal,90).padding(.vertical,9)
+                .pickerStyle(.menu)
+                .accentColor(.jo)
+                .background(Color.gray).cornerRadius(20.0).frame(width: 890)
+                .cornerRadius(12.0)
+                
+                Spacer()
+                Spacer()
+                Button("Salvar"){
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                }
+                .frame(height: 40)
+                .frame(width: 280)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(15.0)
+                Spacer()
+            }
+            .onAppear(){
+                viewModel.fetch()
+            }
+        }
     }
 }
-
 #Preview {
     preferencias()
 }
