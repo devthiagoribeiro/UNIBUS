@@ -8,16 +8,14 @@
 import Foundation
 
 struct coordenadas: Codable, Hashable{
-    var lat: Double?
-    var long: Double?
+    var latitude: Double?
+    var longitude: Double?
 }
     
 struct unibus: Codable, Hashable{
     var _id: String
     var _rev: String
     var nome: String?
-    var imagem: String?
-    var itinerario: String?
+    var letra: String?
     var rota: [coordenadas]
-    var data : String?
 }
