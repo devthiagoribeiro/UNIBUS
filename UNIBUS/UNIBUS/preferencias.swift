@@ -9,10 +9,10 @@ import SwiftUI
 import BottomSheet
 struct preferencias: View {
     @StateObject var viewModel = ViewModel()
-    @State var selection = ""
-    @State var selection1 = ""
-    @State var selection2 = ""
-    @State var selection3 = ""
+    @State var selection: unibus?
+    @State var selection1: unibus?
+    @State var selection2: unibus?
+    @State var selection3: unibus?
     var body: some View {
         ZStack{
             Color.cor.ignoresSafeArea()
@@ -27,9 +27,10 @@ struct preferencias: View {
                 
                 Picker("Select a paint color", selection: $selection) {
                     ForEach(viewModel.chars, id: \.self) { p in
-                        
                         Text(p.nome!)
                     }
+                   
+                    
                 }.padding(.horizontal,90).padding(.vertical,9)
                 .accentColor(.jo)
                 .background(Color.gray).cornerRadius(20.0).frame(width: 890)
@@ -75,7 +76,11 @@ struct preferencias: View {
                 Spacer()
                 Spacer()
                 Button("Salvar"){
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    global.selections?.append(selection!)
+                    global.selections?.append(selection1!)
+                    global.selections?.append(selection2!)
+                    global.selections?.append(selection3!)
+                    global.buli = true
                 }
                 .frame(height: 40)
                 .frame(width: 280)
