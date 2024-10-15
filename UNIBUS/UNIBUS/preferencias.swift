@@ -75,15 +75,25 @@ struct preferencias: View {
                 .accentColor(.jo)
                 .background(Color.gray).cornerRadius(20.0).frame(width: 890)
                 .cornerRadius(12.0)
+            
                 
                 Spacer()
                 Spacer()
                 Button("Salvar"){
-                    global.selections?.append(selection!)
-                    global.selections?.append(selection1!)
-                    global.selections?.append(selection2!)
-                    global.selections?.append(selection3!)
-                    global.buli = true
+                    if(global.buli == true){
+                        global.selections?.removeAll()
+                        global.selections?.append(selection!)
+                        global.selections?.append(selection1!)
+                        global.selections?.append(selection2!)
+                        global.selections?.append(selection3!)
+                    }
+                    else{
+                        global.selections?.append(selection!)
+                        global.selections?.append(selection1!)
+                        global.selections?.append(selection2!)
+                        global.selections?.append(selection3!)
+                        global.buli = true
+                    }
                 }
                 .frame(height: 40)
                 .frame(width: 280)
