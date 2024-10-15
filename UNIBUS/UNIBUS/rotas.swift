@@ -268,6 +268,25 @@ struct rotas: View {
         
 
     ]
+    let stopies
+:[CLLocationCoordinate2D] = [
+    CLLocationCoordinate2D(latitude: -9.413650109670161, longitude: -40.50297258310526),
+    CLLocationCoordinate2D(latitude: -9.390166046703108, longitude: -40.50852628600871),
+    CLLocationCoordinate2D(latitude: -9.384859253833, longitude: -40.5089708216691),
+    CLLocationCoordinate2D(latitude: -9.384780052650772, longitude: -40.49947984356537),
+    CLLocationCoordinate2D(latitude: -9.390612152903199, longitude: -40.50104944038884),
+    CLLocationCoordinate2D(latitude: -9.389961771866437, longitude: -40.498114746598674),
+    CLLocationCoordinate2D(latitude: -9.396814523561307, longitude: -40.49104268428995),
+    CLLocationCoordinate2D(latitude: -9.375912817551246, longitude: -40.488312946277325),
+    CLLocationCoordinate2D(latitude: -9.377485004982027, longitude: -40.50208339073541),
+    CLLocationCoordinate2D(latitude: -9.382193304051864, longitude: -40.514779325540374),
+    CLLocationCoordinate2D(latitude: -9.384424453162023, longitude: -40.524341340749935),
+    CLLocationCoordinate2D(latitude: -9.376314854441214, longitude: -40.52764271726237),
+    CLLocationCoordinate2D(latitude: -9.377985539124476, longitude: -40.53528734195221),
+    CLLocationCoordinate2D(latitude: -9.368485698645047, longitude: -40.54188755102034),
+    CLLocationCoordinate2D(latitude: -9.358737641003898, longitude: -40.54757221015858)
+    ]
+    
     
     var body: some View {
         ZStack(alignment: .top){
@@ -275,9 +294,32 @@ struct rotas: View {
             {
                 MapPolyline(coordinates: walkingRoute)
                     .stroke(.blue, lineWidth: 6)
-                Marker("", coordinate: CLLocationCoordinate2D(latitude: -9.411570786205203, longitude: -40.51281764595359))
-                
+                Marker("", coordinate: CLLocationCoordinate2D(latitude: -9.323360557914363, longitude: -40.54806007635696))
+                Annotation("UNIVASF - Juazeiro", coordinate: CLLocationCoordinate2D(latitude: -9.411570786205203, longitude: -40.51281764595359)) {
+                    ZStack {
+                        Circle()
+                            .strokeBorder(.textcolor, lineWidth: 10)
+                            .frame(width: 20, height: 20)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        Circle()
+                            .strokeBorder(.textcolor, lineWidth: 5)
+                            .frame(width: 40, height: 40)
+                    }
+                    
+                }
+                ForEach(stopies, id: \.latitude) { stop in
+                        Annotation("", coordinate: stop) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 5)
+                                    .frame(width: 30, height: 30)
+                                .foregroundColor(.textcolor)
+                                Image(systemName: "bus").foregroundColor(.mblack)
+                            }
+                            
+                        }
+                }
             }
+            
             ZStack(alignment: .center){
                 Rectangle().frame(width: 300, height: 70)
                         .cornerRadius(20)
