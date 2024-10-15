@@ -286,14 +286,13 @@ struct rotas: View {
         CLLocationCoordinate2D(latitude: -9.358737641003898, longitude: -40.54757221015858)
         ]
     
-    
     var body: some View {
         ZStack(alignment: .top){
             Map(position: $position)
             {
                 MapPolyline(coordinates: walkingRoute)
                     .stroke(.blue, lineWidth: 6)
-                Marker("", coordinate: CLLocationCoordinate2D(latitude: -9.323360557914363, longitude: -40.54806007635696))
+                Marker("Univasf - CCA", coordinate: CLLocationCoordinate2D(latitude: -9.323360557914363, longitude: -40.54806007635696))
                 Annotation("UNIVASF - Juazeiro", coordinate: CLLocationCoordinate2D(latitude: -9.411570786205203, longitude: -40.51281764595359)) {
                     ZStack {
                         Circle()
@@ -311,11 +310,11 @@ struct rotas: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
                                 .frame(width: 30, height: 30)
-                            .foregroundColor(.textcolor)
+                                .foregroundColor(.textcolor)
                             Image(systemName: "bus").foregroundColor(.mblack)
                         }
-                                            
-                        }
+                        
+                    }
                 }
                 
             }
@@ -329,13 +328,14 @@ struct rotas: View {
             VStack{
                 Picker(" ", selection: $selection) {
                     ForEach(viewModel.chars, id: \.self) { p in
-                        Text(p.nome!)
+                        Text("Ônibus \(p.letra!)")
                     }
                 }
                 .pickerStyle(.menu)
                 .accentColor(.textcolor)
                 .onChange(of: selection) {
                     verify(seleced: selection)
+                    print(selection)
                 }
             }
             .padding(.top)
@@ -346,11 +346,11 @@ struct rotas: View {
     }
     func verify(seleced:String){
         for i in viewModel.chars{
-            if(i.nome! == "Ônibus L"){
+            if(i.letra! == "L"){
                 makeRoute(rota: i.rota)
                 makeStopies(stops: i.parada)
             }
-            else if(i.nome! == "Ônibus J"){
+            else if(i.letra! == "J"){
                 makeRoute(rota: i.rota)
                 makeStopies(stops: i.parada)
             }
