@@ -327,8 +327,8 @@ struct rotas: View {
             }
             VStack{
                 Picker(" ", selection: $selection) {
-                    ForEach(viewModel.chars, id: \.self) { p in
-                        Text("Ônibus \(p.letra!)")
+                    ForEach(viewModel.chars, id: \.letra) { p in
+                        Text("Ônibus \(p.letra)")
                     }
                 }
                 .pickerStyle(.menu)
@@ -346,11 +346,11 @@ struct rotas: View {
     }
     func verify(seleced:String){
         for i in viewModel.chars{
-            if(i.letra! == "L"){
+            if(i.letra == "L"){
                 makeRoute(rota: i.rota)
                 makeStopies(stops: i.parada)
             }
-            else if(i.letra! == "J"){
+            else if(i.letra == "J"){
                 makeRoute(rota: i.rota)
                 makeStopies(stops: i.parada)
             }
