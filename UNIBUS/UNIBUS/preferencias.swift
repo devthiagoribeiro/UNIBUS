@@ -5,6 +5,7 @@
 //  Created by Turma01-27 on 10/10/24.
 //
 
+
 import SwiftUI
 
 struct preferencias: View {
@@ -21,10 +22,11 @@ struct preferencias: View {
                 Text("")
                 Spacer()
                     Text("Preferências:")
+                    .foregroundStyle(.jo)
                         .font(.title).padding()
                         .padding(.horizontal, -160).bold()
               
-                Text("Ônibus 1").bold()
+                Text("Ônibus 1").bold().foregroundStyle(.jo)
                         .padding(.horizontal, -140)
                 
                 Picker("Select a paint color", selection: $selection) {
@@ -37,7 +39,7 @@ struct preferencias: View {
                 .background(Color.gray).cornerRadius(20.0).frame(width: 890)
                 .cornerRadius(12.0)
                 
-                Text("Ônibus 2").bold()
+                Text("Ônibus 2").bold().foregroundStyle(.jo)
                     .padding(.horizontal, -140)
                 
                 Picker("Select a paint color", selection: $selection1) {
@@ -50,7 +52,7 @@ struct preferencias: View {
                 .background(Color.gray).cornerRadius(20.0).frame(width: 890)
                 .cornerRadius(12.0)
                 
-                Text("Ônibus 3").bold()
+                Text("Ônibus 3").bold().foregroundStyle(.jo)
                     .padding(.horizontal, -140)
                 
                 Picker("Select a paint color", selection: $selection2) {
@@ -62,7 +64,7 @@ struct preferencias: View {
                 .background(Color.gray).cornerRadius(20.0).frame(width: 890)
                 .cornerRadius(12.0)
                 
-                Text("Ônibus 4").bold()
+                Text("Ônibus 4").bold().foregroundStyle(.jo)
                     .padding(.horizontal, -140)
                 
                 Picker("Select a paint color", selection: $selection3) {
