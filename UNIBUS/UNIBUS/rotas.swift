@@ -335,7 +335,7 @@ struct rotas: View {
                 .accentColor(.textcolor)
                 .onChange(of: selection) {
                     verify(seleced: selection)
-                    print(selection)
+                    
                 }
             }
             .padding(.top)
@@ -346,11 +346,7 @@ struct rotas: View {
     }
     func verify(seleced:String){
         for i in viewModel.chars{
-            if(i.letra == "L"){
-                makeRoute(rota: i.rota)
-                makeStopies(stops: i.parada)
-            }
-            else if(i.letra == "J"){
+            if(i.letra == seleced){
                 makeRoute(rota: i.rota)
                 makeStopies(stops: i.parada)
             }
