@@ -16,7 +16,7 @@ struct rotas: View {
             span: MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.001)))
     @StateObject var viewModel = ViewModel()
     @State var selection = ""
-    let walkingRoute: [CLLocationCoordinate2D] = [
+    @State var walkingRoute: [CLLocationCoordinate2D] = [
         CLLocationCoordinate2D(latitude: -9.411570786205203, longitude: -40.51281764595359),
         CLLocationCoordinate2D(latitude: -9.41120594042784, longitude: -40.51123374346106),
         CLLocationCoordinate2D(latitude: -9.411334091272398,longitude: -40.50607836532993),
@@ -265,27 +265,26 @@ struct rotas: View {
         CLLocationCoordinate2D(latitude: -9.32377851150549, longitude: -40.54840329672081),
         CLLocationCoordinate2D(latitude: -9.323519092230566, longitude: -40.54816961484207),
         CLLocationCoordinate2D(latitude: -9.323360557914363, longitude: -40.54806007635696)
-        
-
     ]
-    let stopies
-:[CLLocationCoordinate2D] = [
-    CLLocationCoordinate2D(latitude: -9.413650109670161, longitude: -40.50297258310526),
-    CLLocationCoordinate2D(latitude: -9.390166046703108, longitude: -40.50852628600871),
-    CLLocationCoordinate2D(latitude: -9.384859253833, longitude: -40.5089708216691),
-    CLLocationCoordinate2D(latitude: -9.384780052650772, longitude: -40.49947984356537),
-    CLLocationCoordinate2D(latitude: -9.390612152903199, longitude: -40.50104944038884),
-    CLLocationCoordinate2D(latitude: -9.389961771866437, longitude: -40.498114746598674),
-    CLLocationCoordinate2D(latitude: -9.396814523561307, longitude: -40.49104268428995),
-    CLLocationCoordinate2D(latitude: -9.375912817551246, longitude: -40.488312946277325),
-    CLLocationCoordinate2D(latitude: -9.377485004982027, longitude: -40.50208339073541),
-    CLLocationCoordinate2D(latitude: -9.382193304051864, longitude: -40.514779325540374),
-    CLLocationCoordinate2D(latitude: -9.384424453162023, longitude: -40.524341340749935),
-    CLLocationCoordinate2D(latitude: -9.376314854441214, longitude: -40.52764271726237),
-    CLLocationCoordinate2D(latitude: -9.377985539124476, longitude: -40.53528734195221),
-    CLLocationCoordinate2D(latitude: -9.368485698645047, longitude: -40.54188755102034),
-    CLLocationCoordinate2D(latitude: -9.358737641003898, longitude: -40.54757221015858)
-    ]
+    
+    @State var stopies
+    :[CLLocationCoordinate2D] = [
+        CLLocationCoordinate2D(latitude: -9.413650109670161, longitude: -40.50297258310526),
+        CLLocationCoordinate2D(latitude: -9.390166046703108, longitude: -40.50852628600871),
+        CLLocationCoordinate2D(latitude: -9.384859253833, longitude: -40.5089708216691),
+        CLLocationCoordinate2D(latitude: -9.384780052650772, longitude: -40.49947984356537),
+        CLLocationCoordinate2D(latitude: -9.390612152903199, longitude: -40.50104944038884),
+        CLLocationCoordinate2D(latitude: -9.389961771866437, longitude: -40.498114746598674),
+        CLLocationCoordinate2D(latitude: -9.396814523561307, longitude: -40.49104268428995),
+        CLLocationCoordinate2D(latitude: -9.375912817551246, longitude: -40.488312946277325),
+        CLLocationCoordinate2D(latitude: -9.377485004982027, longitude: -40.50208339073541),
+        CLLocationCoordinate2D(latitude: -9.382193304051864, longitude: -40.514779325540374),
+        CLLocationCoordinate2D(latitude: -9.384424453162023, longitude: -40.524341340749935),
+        CLLocationCoordinate2D(latitude: -9.376314854441214, longitude: -40.52764271726237),
+        CLLocationCoordinate2D(latitude: -9.377985539124476, longitude: -40.53528734195221),
+        CLLocationCoordinate2D(latitude: -9.368485698645047, longitude: -40.54188755102034),
+        CLLocationCoordinate2D(latitude: -9.358737641003898, longitude: -40.54757221015858)
+        ]
     
     
     var body: some View {
@@ -300,7 +299,7 @@ struct rotas: View {
                         Circle()
                             .strokeBorder(.textcolor, lineWidth: 10)
                             .frame(width: 20, height: 20)
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                         Circle()
                             .strokeBorder(.textcolor, lineWidth: 5)
                             .frame(width: 40, height: 40)
@@ -308,21 +307,22 @@ struct rotas: View {
                     
                 }
                 ForEach(stopies, id: \.latitude) { stop in
-                        Annotation("", coordinate: stop) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 5)
-                                    .frame(width: 30, height: 30)
-                                .foregroundColor(.textcolor)
-                                Image(systemName: "bus").foregroundColor(.mblack)
-                            }
-                            
+                    Annotation("", coordinate: stop) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 5)
+                                .frame(width: 30, height: 30)
+                            .foregroundColor(.textcolor)
+                            Image(systemName: "bus").foregroundColor(.mblack)
+                        }
+                                            
                         }
                 }
+                
             }
             
             ZStack(alignment: .center){
                 Rectangle().frame(width: 300, height: 70)
-                        .cornerRadius(20)
+                    .cornerRadius(20)
                     .foregroundColor(.mblack)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
@@ -332,13 +332,42 @@ struct rotas: View {
                         Text(p.nome!)
                     }
                 }
-                    .pickerStyle(.menu)
-                    .accentColor(.textcolor)
+                .pickerStyle(.menu)
+                .accentColor(.textcolor)
+                .onChange(of: selection) {
+                    verify(seleced: selection)
                 }
+            }
             .padding(.top)
         }
         .onAppear(){
             viewModel.fetch()
+        }
+    }
+    func verify(seleced:String){
+        for i in viewModel.chars{
+            if(i.nome! == "Ônibus L"){
+                makeRoute(rota: i.rota)
+                makeStopies(stops: i.parada)
+            }
+            else if(i.nome! == "Ônibus J"){
+                makeRoute(rota: i.rota)
+                makeStopies(stops: i.parada)
+            }
+        }
+    }
+    
+    func makeRoute(rota:[coordenadas]){
+        walkingRoute.removeAll()
+            for j in rota {
+                walkingRoute.append(CLLocationCoordinate2D(latitude: j.latitude!, longitude: j.longitude!))
+            }
+    }
+    
+    func makeStopies(stops:[paradas]){
+        stopies.removeAll()
+        for i in stops{
+            stopies.append(CLLocationCoordinate2D(latitude: i.lat!, longitude: i.long!))
         }
     }
 }
