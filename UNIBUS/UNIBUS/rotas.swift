@@ -20,8 +20,8 @@ struct rotas: View {
     @State var stopies
     :[CLLocationCoordinate2D] = []
     
-    @State var partida = "Univasf - Juazeiro"
-    @State var chegada = "Univasf - CCA"
+    @State var partida = ""
+    @State var chegada = ""
     
     var body: some View {
         ZStack(alignment: .top){
@@ -45,14 +45,16 @@ struct rotas: View {
                     }
                 
                 ForEach(stopies, id: \.latitude) { stop in
-                    Annotation("", coordinate: stop) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 5)
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.textcolor)
-                            Image(systemName: "bus").foregroundColor(.mblack)
+                    if(stop.latitude != walkingRoute[0].latitude && stop.latitude != walkingRoute[walkingRoute.count-1].latitude){
+                        Annotation("", coordinate: stop) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 5)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.textcolor)
+                                Image(systemName: "bus").foregroundColor(.mblack)
+                            }
+                            
                         }
-                        
                     }
                 }
                 }
