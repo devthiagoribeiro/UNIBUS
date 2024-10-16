@@ -26,11 +26,9 @@ struct ContentView: View {
             TabView{
                 ZStack{
                     Map(position: $position)
-                    {}
+                    {
                     ForEach(viewModel.chars, id: \.self){
                         index in
-                        Map(position: $position)
-                        {
                             Annotation("", coordinate: CLLocationCoordinate2D(latitude: index.LA!, longitude: index.LO!))
                             {
                                 ZStack {
@@ -41,17 +39,9 @@ struct ContentView: View {
                                         .font(.title)
                                         .foregroundColor(Color.gray)
                                 }
-                                .offset(x: CGFloat(positionX), y: CGFloat(positionY))
-                                .animation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true).speed(0.1))
-                                .onAppear(){
-                                    positionX+=index.PositionX!
-                                    positionY-=index.PositionY!
-                                }
                             }
                         }
-                    }
-
-                }
+                    }                }
                     .bottomSheet(
                         bottomSheetPosition: $bottomSheetPosition,
                         switchablePositions: [.absolute(150),
