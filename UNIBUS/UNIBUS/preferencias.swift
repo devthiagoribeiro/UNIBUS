@@ -27,70 +27,80 @@ struct preferencias: View {
     
     var body: some View {
         ZStack{
-            Color.cor.ignoresSafeArea()
+            Color.mblack.ignoresSafeArea()
             
             VStack{
                 
                 Text("Preferências:")
-                    .foregroundStyle(.jo)
+                    .foregroundStyle(.textcolor)
                     .font(.title).padding()
                    /* .padding(.horizontal, -160)*/.bold()
                 
-                Text("Ônibus 1").bold().foregroundStyle(.jo)
+                Text("Ônibus 1").bold().foregroundStyle(.textcolor)
                    // .padding(.horizontal, -140)
                 
                 
-                Picker("Select a paint color", selection: $selection) {
-                    ForEach(viewModel.chars, id: \.nome) { p in
-                        Text(p.nome)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 270, height: 50)
+                        .cornerRadius(20)
+                        .foregroundColor(.gray)
+                    Picker("Select a paint color", selection: $selection) {
+                        ForEach(viewModel.chars, id: \.nome) { p in
+                            Text(p.nome)
+                        }
                     }
-                }.padding(.horizontal,90).padding(.vertical,9)
-                    .accentColor(.jo)
-                    .background(Color.gray).cornerRadius(20.0)
-                    .frame(width: 890)
-                    .cornerRadius(12.0)
+                    .accentColor(.textcolor)
+                }
                 
-                Text("Ônibus 2").bold().foregroundStyle(.jo)
+                Text("Ônibus 2").bold().foregroundStyle(.textcolor)
                    // .padding(.horizontal, -140)
                 
-                Picker("Select a paint color", selection: $selection1) {
-                    ForEach(viewModel.chars, id: \.nome) { p in
-                        Text(p.nome)
-                        
+                ZStack {
+                    Rectangle()
+                        .frame(width: 270, height: 50)
+                        .cornerRadius(20)
+                        .foregroundColor(.gray)
+                    Picker("Select a paint color", selection: $selection1) {
+                        ForEach(viewModel.chars, id: \.nome) { p in
+                            Text(p.nome)
+                        }
                     }
-                }.padding(.horizontal,90).padding(.vertical,9)
-                    .accentColor(.jo)
-                    .background(Color.gray).cornerRadius(20.0)
-                    .frame(width: 890)
-                    .cornerRadius(12.0)
+                    .accentColor(.textcolor)
+                }
                 
-                Text("Ônibus 3").bold().foregroundStyle(.jo)
+                Text("Ônibus 3").bold().foregroundStyle(.textcolor)
                    // .padding(.horizontal, -140)
                 
-                Picker("Select a paint color", selection: $selection2) {
-                    ForEach(viewModel.chars, id: \.nome) { p in
-                        Text(p.nome)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 270, height: 50)
+                        .cornerRadius(20)
+                        .foregroundColor(.gray)
+                    Picker("Select a paint color", selection: $selection2) {
+                        ForEach(viewModel.chars, id: \.nome) { p in
+                            Text(p.nome)
+                        }
                     }
-                }.padding(.horizontal,90).padding(.vertical,9)
-                    .accentColor(.jo)
-                    .background(Color.gray).cornerRadius(20.0)
-                    .frame(width: 890)
-                    .cornerRadius(12.0)
+                    .accentColor(.textcolor)
+                }
                 
                 
-                Text("Ônibus 4").bold().foregroundStyle(.jo)
+                Text("Ônibus 4").bold().foregroundStyle(.textcolor)
                    // .padding(.horizontal, -140)
                 
-                Picker("Select a paint color", selection: $selection3) {
-                    ForEach(viewModel.chars, id: \.nome) { p in
-                        Text(p.nome)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 270, height: 50)
+                        .cornerRadius(20)
+                        .foregroundColor(.gray)
+                    Picker("Select a paint color", selection: $selection3) {
+                        ForEach(viewModel.chars, id: \.nome) { p in
+                            Text(p.nome)
+                        }
                     }
-                }.padding(.horizontal,90).padding(.vertical,9)
-                    .pickerStyle(.menu)
-                    .accentColor(.jo)
-                    .background(Color.gray).cornerRadius(20.0)
-                    //.frame(width: 890)
-                    .cornerRadius(12.0)
+                    .accentColor(.textcolor)
+                }
                 
 
                     
@@ -125,13 +135,15 @@ struct preferencias: View {
                     viewModel.fetch()
                 }.frame(height: 40)
                     .frame(width: 280)
-                    .background(Color.white)
-                    .foregroundColor(.black)
+                    .background(Color.textcolor)
+                    .foregroundColor(.mblack)
                     .cornerRadius(15.0)
+                    .padding(.top, 40)
                     
             }
         }
         .onAppear(){
+            viewModel.fetch2()
             viewModel.fetch()
             //print(globalStruct.buli)
         }
@@ -143,5 +155,3 @@ struct preferencias: View {
 #Preview {
     preferencias()
 }
-
-
