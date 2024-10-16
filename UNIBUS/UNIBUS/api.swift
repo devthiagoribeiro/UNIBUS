@@ -18,12 +18,15 @@ struct paradas: Codable,Hashable{
 struct unibus: Codable, Hashable{
     var _id: String
     var _rev: String
-    var nome: String?
-    var letra: String?
+    var nome: String
+    var letra: String
     var rota: [coordenadas]
     var parada: [paradas]
+    var partida:String?
+    var chegada:String?
     var LA: Double?
     var LO: Double?
     var PositionX: Int?
     var PositionY: Int?
+    var val: Bool?
 }
