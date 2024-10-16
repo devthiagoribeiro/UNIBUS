@@ -4,6 +4,9 @@
 //
 //  Created by Turma01-27 on 10/10/24.
 //
+
+import Foundation
+
 class ViewModel: ObservableObject{
     @Published var chars : [unibus] = []
     
@@ -64,23 +67,29 @@ class ViewModel: ObservableObject{
                 
                 //                //ordenar dando prioridade pras prefenrecias
                 var aux : [unibus] = []
-
                 
-//                print("Total \(self.chars.count)")
+                
+                //                print("Total \(self.chars.count)")
                 
                 let sortPref = self.pref.sorted(by: { $0.date! > $1.date!}).first
                 
-                for y in  self.chars{
-                    for z in sortPref!.ids{
-                        if( y._id == z){
-                            aux.append(y)
-//                            print("pref \(y.letra!)")
-                            if let index = self.chars.firstIndex(of: y) {
-                                self.chars.remove(at: index)
-                            }
-                        }
+                if(self.pref.count > 0){
+                    for y in  self.chars{
                         
+//                        print(y.letra)
+                        
+                        for z in sortPref!.ids{
+                            if( y._id == z){
+                                aux.append(y)
+//                                print("pref \(y.letra)")
+                                if let index = self.chars.firstIndex(of: y) {
+                                    self.chars.remove(at: index)
+                                }
+                            }
+                            
+                        }
                     }
+                    
                 }
                 
                 
@@ -90,11 +99,11 @@ class ViewModel: ObservableObject{
                     aux.append(y)
                     
                 }
-               
+                
                 self.chars = []
                 self.chars = aux
                 
-               
+                
                 
                 
             }catch{
