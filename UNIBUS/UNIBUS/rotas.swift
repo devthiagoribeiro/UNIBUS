@@ -286,14 +286,17 @@ struct rotas: View {
         CLLocationCoordinate2D(latitude: -9.358737641003898, longitude: -40.54757221015858)
         ]
     
+    @State var partida = "Univasf - Juazeiro"
+    @State var chegada = "Univasf - CCA"
+    
     var body: some View {
         ZStack(alignment: .top){
             Map(position: $position)
             {
                 MapPolyline(coordinates: walkingRoute)
                     .stroke(.blue, lineWidth: 6)
-                Marker("Univasf - CCA", coordinate: CLLocationCoordinate2D(latitude: -9.323360557914363, longitude: -40.54806007635696))
-                Annotation("UNIVASF - Juazeiro", coordinate: CLLocationCoordinate2D(latitude: -9.411570786205203, longitude: -40.51281764595359)) {
+                Marker(chegada, coordinate: walkingRoute[walkingRoute.count-1])
+                Annotation(partida, coordinate: walkingRoute[0]) {
                     ZStack {
                         Circle()
                             .strokeBorder(.textcolor, lineWidth: 10)
@@ -326,7 +329,7 @@ struct rotas: View {
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
             VStack{
-                Picker(" ", selection: $selection) {
+                Picker("", selection: $selection) {
                     ForEach(viewModel.chars, id: \.letra) { p in
                         Text("Ônibus \(p.letra)")
                     }
@@ -349,6 +352,8 @@ struct rotas: View {
             if(i.letra == seleced){
                 makeRoute(rota: i.rota)
                 makeStopies(stops: i.parada)
+                partida = i.partida!
+                chegada = i.chegada!
             }
         }
     }
