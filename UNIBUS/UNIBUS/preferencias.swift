@@ -34,9 +34,9 @@ struct preferencias: View {
                 Text("Preferências:")
                     .foregroundStyle(.jo)
                     .font(.title).padding()
-                  //  .padding(.horizontal, -160).bold()
+                   /* .padding(.horizontal, -160)*/.bold()
                 
-                Text("ônibus 1").bold().foregroundStyle(.jo)
+                Text("Ônibus 1").bold().foregroundStyle(.jo)
                    // .padding(.horizontal, -140)
                 
                 
@@ -47,7 +47,7 @@ struct preferencias: View {
                 }.padding(.horizontal,90).padding(.vertical,9)
                     .accentColor(.jo)
                     .background(Color.gray).cornerRadius(20.0)
-                    //.frame(width: 890)
+                    .frame(width: 890)
                     .cornerRadius(12.0)
                 
                 Text("Ônibus 2").bold().foregroundStyle(.jo)
@@ -61,7 +61,7 @@ struct preferencias: View {
                 }.padding(.horizontal,90).padding(.vertical,9)
                     .accentColor(.jo)
                     .background(Color.gray).cornerRadius(20.0)
-                    //.frame(width: 890)
+                    .frame(width: 890)
                     .cornerRadius(12.0)
                 
                 Text("Ônibus 3").bold().foregroundStyle(.jo)
@@ -74,7 +74,7 @@ struct preferencias: View {
                 }.padding(.horizontal,90).padding(.vertical,9)
                     .accentColor(.jo)
                     .background(Color.gray).cornerRadius(20.0)
-                    //.frame(width: 890)
+                    .frame(width: 890)
                     .cornerRadius(12.0)
                 
                 
@@ -92,22 +92,11 @@ struct preferencias: View {
                     //.frame(width: 890)
                     .cornerRadius(12.0)
                 
-//                ForEach(viewModel.chars, id: \.self){ p in
-//                    if(selection == p.nome){
-//                        
-//                    }
-//                }
-//                Spacer()
-//                Spacer()
-                
+
+                    
                 
                 Button("Salvar"){
-                    
-                    
-                    // viewModel.removeAllPrefs(arr: viewModel.pref)
-                    
-                    //boolAux.toggle()
-                    //viewModel.post(u: _id: id, _rev: rev, val: boolAux)
+   
                     let bus1 =  viewModel.chars.filter{
                         $0.nome == selection
                     }
@@ -134,53 +123,25 @@ struct preferencias: View {
                     
                     
                     viewModel.fetch()
+                }.frame(height: 40)
+                    .frame(width: 280)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .cornerRadius(15.0)
                     
-                    
-                    
-                    
-                    
-                    //                    if(globalStruct.buli == true){
-                    //                        globalStruct.selections?.removeAll()
-                    //                        globalStruct.selections?.append(selection!)
-                    //                        globalStruct.selections?.append(selection1!)
-                    //                        globalStruct.selections?.append(selection2!)
-                    //                        globalStruct.selections?.append(selection3!)
-                    //                    }
-                    //                    else{
-                    //                        globalStruct.selections?.append(selection!)
-                    //                        globalStruct.selections?.append(selection1!)
-                    //                        globalStruct.selections?.append(selection2!)
-                    //                        globalStruct.selections?.append(selection3!)
-                    //                        globalStruct.buli = true
-                    //                    }
-                    //                    print(globalStruct.buli)
-                    
-                    //foreach pra percorrer a API
-                    //condição: if o Bool for diferente de false
-                    //segundo forEach com as
-                }
-                
-                
-//                ScrollView{
-//                    VStack{
-//                        ForEach(viewModel.chars, id: \.self){ a in
-//                            Text(a.letra!)
-//                        }
-//                    }
-//                }
             }
-
-            
-
         }
         .onAppear(){
             viewModel.fetch()
             //print(globalStruct.buli)
         }
     }
+        
 }
 
 
 #Preview {
     preferencias()
 }
+
+
