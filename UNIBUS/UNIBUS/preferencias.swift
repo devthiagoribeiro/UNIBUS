@@ -50,7 +50,7 @@ struct preferencias: View {
                             Text(p.nome)
                         }
                     }
-                    .accentColor(.textcolor)
+                    .accentColor(.white)
                 }
                 
                 Text("Ônibus 2").bold().foregroundStyle(.textcolor)
@@ -66,7 +66,7 @@ struct preferencias: View {
                             Text(p.nome)
                         }
                     }
-                    .accentColor(.textcolor)
+                    .accentColor(.white)
                 }
                 
                 Text("Ônibus 3").bold().foregroundStyle(.textcolor)
@@ -82,7 +82,7 @@ struct preferencias: View {
                             Text(p.nome)
                         }
                     }
-                    .accentColor(.textcolor)
+                    .accentColor(.white)
                 }
                 
                 
@@ -99,7 +99,7 @@ struct preferencias: View {
                             Text(p.nome)
                         }
                     }
-                    .accentColor(.textcolor)
+                    .accentColor(.white)
                 }
                 
 
