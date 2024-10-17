@@ -61,17 +61,7 @@ struct ContentView: View {
                     },
                     mainContent: {
                         ScrollView{
-                            HStack{
-                                Spacer()
-                                Image(systemName: "arrow.clockwise.circle.fill")
-                                    .font(.system(size: 50))
-                                    .padding()
-                                    .onTapGesture {
-                                        print("foi")
-                                        viewModel.fetch()
-                                    }
-                            }
-                            
+            
                             ForEach(viewModel.chars, id: \.self){ index in
                                 HStack{
                                     VStack{
@@ -97,6 +87,7 @@ struct ContentView: View {
                                                 }
                                             }
                                             
+                                            
                                             Spacer()
                                             
                                         }
@@ -110,6 +101,17 @@ struct ContentView: View {
                                 }
                                 .padding(.leading)
                                 Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Rectangle()
+                                    .padding()
+                                    .frame(width: .infinity, height: 400)
+                                    .foregroundColor(.pattern)
+                                    .onTapGesture {
+                                        print("foi")
+                                        viewModel.fetch()
+                                    }
                             }
                         }
                     })
