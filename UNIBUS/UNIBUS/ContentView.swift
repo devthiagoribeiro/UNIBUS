@@ -54,7 +54,7 @@ struct ContentView: View {
                                         .foregroundColor(Color.gray)
                                 }
                                 .offset(x: CGFloat(positionX), y: CGFloat(positionY))
-                                    .animation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true).speed(0.1))
+                                    .animation(Animation.easeInOut(duration: 8).repeatForever(autoreverses: true).speed(0.1))
                                     .onAppear(){
                                         positionX+=20
                                         positionY-=80
