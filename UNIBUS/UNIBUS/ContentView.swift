@@ -26,12 +26,10 @@ struct ContentView: View {
         ZStack{
             TabView{
                 ZStack{
-                    Map(position: $position)
-                    {}
-                    ForEach(viewModel.chars, id: \.self){
-                        index in
                         Map(position: $position)
                         {
+                            ForEach(viewModel.chars, id: \.self){
+                                index in
                             Annotation("", coordinate: CLLocationCoordinate2D(latitude: index.LA!, longitude: index.LO!))
                             {
                                 ZStack {
@@ -42,14 +40,26 @@ struct ContentView: View {
                                         .font(.title)
                                         .foregroundColor(Color.gray)
                                 }
-                                .offset(x: CGFloat(positionX), y: CGFloat(positionY))
-                                .animation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true).speed(0.1))
-                                .onAppear(){
-                                    positionX+=index.PositionX!
-                                    positionY-=index.PositionY!
-                                }
+                                
                             }
                         }
+                            Annotation("", coordinate: CLLocationCoordinate2D(latitude: -9.407602, longitude: -40.504877))
+                            {
+                                ZStack {
+                                    Circle()
+                                        .fill(.white)
+                                        .frame(width: 40, height: 40)
+                                    Text("F")
+                                        .font(.title)
+                                        .foregroundColor(Color.gray)
+                                }
+                                .offset(x: CGFloat(positionX), y: CGFloat(positionY))
+                                    .animation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true).speed(0.1))
+                                    .onAppear(){
+                                        positionX+=20
+                                        positionY-=80
+                                    }
+                            }
                     }
                 }
                 .bottomSheet(
@@ -150,4 +160,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
